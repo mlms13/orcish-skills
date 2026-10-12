@@ -30,6 +30,9 @@ Bad tickets:
 - Use noisy, ceremonial language, such as "as a user..."
 - Bloat the body with content that is better expressed by the ticketing system
   itself (labels, size estimates, blocking relationships).
+- Apply repo-specific markdown conventions to published tickets (some ticketing
+  systems render wrapping as line breaks, so keep each paragraph and list item
+  on one line).
 
 Be cautious about:
 
