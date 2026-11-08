@@ -13,19 +13,28 @@ Otherwise, inspect `git status --short`; prefer unstaged changes, or staged if
 no unstaged exist. If all work is committed and the branch holds a single unique
 commit, use that. Stop and ask before reviewing an entire multi-commit branch.
 
+## Context
+
+Work out the change's intent from what you're told about it, its PR or commits,
+or its code.
+
 ## Instructions
 
-Review the diff for correctness. Identify high-risk and complex portions of the
-change; prioritize those. For each of the highest risk areas, what is the most
-severe plausible failure mode? The worst thing that could happen if this change
-ships today? Does the change itself adequately handle those cases?
+Review the change for correctness, using its intent to tell intended behavior
+from bugs. Identify high-risk and complex portions of the change; prioritize
+those. For each of the highest risk areas, what is the most severe plausible
+failure mode? The worst thing that could happen if this change ships today? Does
+the change itself adequately handle those cases?
 
-Where possible, empirically verify potential bugs you identify or unexpected
-potential failures that the change itself doesn't account for. Use the smallest
-experiment or focused test needed to verify the issue. Only report issues that
-you are confident about, including evidence and remaining uncertainty.
+Report what the change gets wrong, including failure cases it doesn't handle,
+not requirements it leaves undone. Only report issues that you are confident
+about, including evidence and remaining uncertainty.
 
-Leave routine build, lint, format, and full test suites to CI.
+Don't rerun existing test suites, builds, or checks.
+
+Check a suspected bug with the smallest new experiment that shows it, such as a
+focused test or a short script, kept out of the change (e.g. in a scratch
+location) and run on its own.
 
 ## Reporting Findings
 

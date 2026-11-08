@@ -13,25 +13,30 @@ Otherwise, inspect `git status --short`; prefer unstaged changes, or staged if
 no unstaged exist. If all work is committed and the branch holds a single unique
 commit, use that. Stop and ask before reviewing an entire multi-commit branch.
 
+## Context
+
+Identify the change's tickets from what you're told, or from the branch,
+commits, or PR body. The same sources, or the user's request, may limit it to
+some of those tickets' ACs. If the tickets or their ACs cannot be established,
+report that instead of reviewing.
+
 ## Instructions
 
-Identify the ticket from supplied context, branch, commits, or PR body. Read
-its acceptance criteria before the diff. Establish which ACs the change claims;
-do not demand deferred ACs from an explicitly partial change. If the
-ticket or claimed ACs cannot be established, report that limitation instead of
-inventing requirements.
+Judge the change against its tickets' acceptance criteria, and read them before
+the diff. If the change is limited to some of those ACs, hold it to only those;
+otherwise every AC is required. Don't invent requirements.
 
-- Map each claimed AC to implementation evidence. Flag unmet, partial, or
+- Map each required AC to implementation evidence. Flag unmet, partial, or
   quietly reinterpreted criteria.
-- Does each claimed AC have a test that would fail on regression? Check the
-  ticket's edge cases and unhappy paths. Check for repo norms before requiring a
+- Does each required AC have a test that would fail on regression? Check the
+  tickets' edge cases and unhappy paths. Check for repo norms before requiring a
   test for every edge case.
 
-Reuse supplied context and check results. Run a focused test only to resolve
-an AC uncertainty; report results and unverified claims. Leave routine build,
-lint, format, and full test suites to CI.
+Verify findings by reading and tracing the code, not by running it. Don't rerun
+existing test suites, builds, or checks. Note what you couldn't verify with the
+finding it affects, or in your summary.
 
-For each finding, identify the claimed AC, the gap, and the proposed change.
+Name the AC each finding is about.
 
 ## Reporting Findings
 
