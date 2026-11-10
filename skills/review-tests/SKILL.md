@@ -23,7 +23,7 @@ Prefer repo norms over your own expectations or a "total coverage" policy.
 
 Beyond this, look especially for:
 
-- Over-testing e.g. assertions outside a tests's primary scope
+- Over-testing e.g. assertions outside a test's primary scope
 - Redundant tests or tests of paths that cannot realistically be reached
 - Opportunities to simplify or combine test cases
 - However, be cautious of over-merging. Tests with "and" or "or" in the name
@@ -33,11 +33,11 @@ Look for ways to factor out common helpers, fixtures, and factories. But be
 mindful of the balance between "real code" under test vs test helpers (as the
 helpers themselves can obscure what real code is actually being tested).
 
-You may run targeted, specific tests to resolve uncertainty, but avoid running
-the full suite (or linting, or formatting). Your job is not to replicate CI.
+Verify findings by reading and tracing the code, not by running it. Don't rerun
+existing test suites, builds, or checks: your job is not to replicate CI.
 
 Similarly, your job is not to compare tests to their underlying AC. Trust that
-other review steps will check for substance and accurace.
+other review steps will check for substance and accuracy.
 
 ## Reporting Findings
 

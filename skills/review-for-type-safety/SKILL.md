@@ -31,9 +31,9 @@ types were used, or the types were verified elsewhere (e.g. at the boundary).
   that would yield invalid states? Be particularly wary of booleans and
   particularly combinations of booleans.
 
-You may run focused checks when performing experiments needed to verify your
-claims, but don't run routine build, lint, typecheck, etc scripts; trust that
-the CI has those covered.
+Verify findings by reading and tracing the code and its types, not by running
+it. Don't rerun existing typechecks, builds, test suites, or other checks;
+trust that CI has those covered.
 
 ## Reporting Findings
 

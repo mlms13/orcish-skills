@@ -13,19 +13,26 @@ Otherwise, inspect `git status --short`; prefer unstaged changes, or staged if
 no unstaged exist. If all work is committed and the branch holds a single unique
 commit, use that. Stop and ask before reviewing an entire multi-commit branch.
 
+## Context
+
+Identify the change's tickets from what you're told, or from the branch,
+commits, or PR body, then the tickets they block. Use ticket bodies you're
+given; retrieve only what's missing. If the change's tickets cannot be
+established, report that instead of reviewing. If the tickets they block cannot
+be, say so and weigh the change against its own tickets alone.
+
 ## Instructions
 
-Identify the ticket from supplied context, branch, commits, or PR body. Before
-the diff, read the ticket's intent and acceptance criteria, then tickets it
-unblocks and relevant upcoming work. Use supplied bodies; retrieve only missing
-context. If unavailable, state the limitation instead of inventing needs.
+Before the diff, read its tickets' intent and acceptance criteria, then the
+tickets they block. Don't invent needs those tickets don't state.
 
 Determine the larger goal and what downstream work expects from this change.
 Flag mismatched contracts or decisions that would force planned work to undo
 this implementation, even if its ACs pass. Tie each finding to a concrete
 downstream requirement; avoid speculative future-proofing.
 
-Do not run build, lint, format, or test suites for this review.
+Verify findings by reading and tracing the code, not by running it. Don't rerun
+existing test suites, builds, or checks.
 
 ## Reporting Findings
 

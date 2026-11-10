@@ -39,8 +39,8 @@ that, consider the following:
   putting text that is likely to churn (e.g. as features change) in longer-term
   docs (like READMEs, AGENTS files)
 
-Trust that CI will catch the obvious (build, lint, formatting, tests), and don't
-run those checks for this review.
+Verify findings by reading the code, not by running it. Don't rerun existing
+builds, lint, formatting, or tests; trust that CI has those covered.
 
 ## Reporting Findings
 
