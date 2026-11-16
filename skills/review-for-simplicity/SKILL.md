@@ -13,11 +13,17 @@ Otherwise, inspect `git status --short`; prefer unstaged changes, or staged if
 no unstaged exist. If all work is committed and the branch holds a single unique
 commit, use that. Stop and ask before reviewing an entire multi-commit branch.
 
+## Context
+
+Identify the change's tickets from what you're told, or from the branch,
+commits, or PR body; retrieve their details only when needed to understand
+scope. If they cannot be established, work out the change's intent from what
+you're told, its PR or commits, or its code, and review anyway.
+
 ## Instructions
 
-Establish the intended behavior from supplied context and relevant contracts.
-Read comparable implementations and nearby abstractions; retrieve ticket
-details only when needed to understand scope.
+Read the contracts the change touches, comparable implementations, and nearby
+abstractions.
 
 - Is the implementation more complicated than the requirement demands?
 - Find meaningful structural simplifications that preserve behavior; avoid
@@ -25,22 +31,21 @@ details only when needed to understand scope.
 - Check for duplicated existing logic, opportunities to reuse it, and whether
   a refactor would remove the duplication.
 
+Verify findings by reading and tracing the code, not by running it. Don't rerun
+existing test suites, builds, or checks.
+
 ### Simplify Acceptance Criteria
 
 In extremely rare cases, a single, poorly-worded AC from the ticket itself might
 lead to a more complex implementation than would otherwise be necessary. If you
-have access to the ACs themselves, check to see if most of the effort is coming
-from one AC, and whether that AC could be worded differently to still produce a
-valid outcome with much less code.
+have the tickets' ACs, check to see if most of the effort is coming from one AC,
+and whether that AC could be worded differently to still produce a valid outcome
+with much less code. If so, name the AC and propose its rewording.
 
 Again, this shouldn't happen often, and the cost of flagging it is exceptionally
 high (as it involves the human needing to re-scope and approve the ticket
 itself), but catching a rogue AC that forces a needlessly heavy implementation
 can also be very valuable.
-
-### Scripts
-
-Do not run build, lint, format, or test suites for this review.
 
 ## Reporting Findings
 
